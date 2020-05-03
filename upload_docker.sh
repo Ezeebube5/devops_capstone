@@ -3,8 +3,8 @@
 
 # Create dockerpath
 
-img=myapp:blue
-username=donko
+img=static_site:blue
+username=ezeebube5
 
 dockerpath=$username/$img
 

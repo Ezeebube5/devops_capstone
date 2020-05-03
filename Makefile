@@ -1,5 +1,5 @@
 build:
-	docker build -t donko/myapp:blue .
+	docker build -t ezeebube5/static_site:blue .
 
 upload:
 	sh upload_docker.sh

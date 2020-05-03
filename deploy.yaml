@@ -1,13 +1,13 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: myapp
+  name: static_site
   namespace: default
 spec:
   replicas: 4
   selector:
     matchLabels:
-      app: myapp
+      app: static_site
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -16,13 +16,13 @@ spec:
   template:
     metadata:
       labels:
-        app: myapp
+        app: static_site
         deployment: blue
     spec:
       containers:
-      - image: donko/myapp:blue
+      - image: ezeebube5/static_site:blue
         imagePullPolicy: Always
-        name: myapp
+        name: static_site
         ports:
         - containerPort: 80
           protocol: TCP

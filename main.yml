@@ -11,7 +11,7 @@
     
     - name: Get facts for master
       ec2_instance_info:
-        region: us-east-2
+        region: us-west-2
         filters:
           "tag:Name": master
       register: ec2_master 
@@ -31,43 +31,43 @@
   gather_facts: false
   vars:
     replicas: 4
-    image_name: donko/myapp
+    image_name: ezeebube5/static_site
     deployment: blue
   tasks:
-    - name: Create a Deployment for myapp.
+    - name: Create a Deployment for static_site.
       k8s:
         state: present
         definition:
           apiVersion: apps/v1
           kind: Deployment
           metadata:
-            name: "myapp-{{ deployment }}"
+            name: "static_site_{{ deployment }}"
             namespace: default
           spec:
             replicas: "{{ replicas }}"
             selector:
               matchLabels:
-                app: myapp
+                app: static_site
             template:
               metadata:
                 labels:
-                  app: myapp
+                  app: static_site
                   deployment: "{{ deployment }}"
               spec:
                 containers:
-                - name: myapp
+                - name: static_site
                   image: "{{ image_name }}:{{ deployment }}"
                   imagePullPolicy: Always
                   ports:
                   - containerPort: 80
-    - name: Create a Service for myapp.
+    - name: Create a Service for static_site.
       k8s:
         state: present
         definition:
           apiVersion: v1
           kind: Service
           metadata:
-            name: myapp
+            name: static_site
             namespace: default
           spec:
             type: NodePort
@@ -76,5 +76,5 @@
               targetPort: 80
               nodePort: 30007
             selector:
-              app: myapp
+              app: static_site
               deployment: "{{ deployment }}"

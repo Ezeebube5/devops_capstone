@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" This is website for my blue deployment"""
+""" This is the static website for blue deployment"""
 
 from flask import Flask, render_template
 
