@@ -1,4 +1,4 @@
-# Capstone project 
+# Devops Capstone project 
 
 This repo provides the code for building, testing and deploying a flask application on Kubernetes cluster. Using Jenkins to implement Continuous Integration and Continuous Deployment we will build three Jenkins pipelines:
 * Provide the Kubernetes cluster (1 master + 2 worker nodes) on AWS with Ansible - **main branch**
@@ -53,12 +53,9 @@ pip install boto boto3 botocore openshift flask
 
 
 ## Built With
-
+* [Jenkis](https://jenkins.io) - Jenkins is a self-contained
 * [Jenkis](https://jenkins.io) - Jenkins is a self-contained, open source automation server which can be used to automate all sorts of tasks related to building, testing, and delivering or deploying software.
 * [Ansible](https://www.ansible.com) - Ansible is an open-source software provisioning, configuration management, and application-deployment tool
 
 
-
-## License
-[License](../LICENSE.md)
 
