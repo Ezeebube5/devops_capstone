@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: myapp
+  name: static_site
   namespace: default
 spec:
   ports:
@@ -10,7 +10,7 @@ spec:
     protocol: TCP
     targetPort: 80
   selector:
-    app: myapp
+    app: static_site
     deployment: blue
   type: NodePort
 status:
