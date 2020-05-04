@@ -47,13 +47,13 @@ pip install boto boto3 botocore openshift flask
 2. Run the master branch pipeline first to create the EC2 instances, the Load Balancer,  install all dependancies and create the Kubernetes cluster. 
 3. Look at the Load Balancer URL in AWS console and check that you get valid response from the web site.
 4. Run the blue branch pipeline to build, test and deploy the application and the service in Kubernetes cluster. Check the LB URL again and confirm blue deployment was successfull.
-5. Run the green branch pipeline to build, test and deploy the application and swich the service to map the green deployment. Check the LB URL again and confirm green deployment was successfull.
+5. Run the green branch pipeline to build, test and deploy the application and switch the service to map the green deployment. Check the LB URL again and confirm green deployment was successfull.
 
 
 
 
 ## Built With
-* [Jenkis](https://jenkins.io) - Jenkins is a self-contained
+* [AWS](https://aws.amazon.com) - AWS is a broadly adopted cloud platform.
 * [Jenkis](https://jenkins.io) - Jenkins is a self-contained, open source automation server which can be used to automate all sorts of tasks related to building, testing, and delivering or deploying software.
 * [Ansible](https://www.ansible.com) - Ansible is an open-source software provisioning, configuration management, and application-deployment tool
 
