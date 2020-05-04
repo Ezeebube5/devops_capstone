@@ -7,6 +7,7 @@ upload:
 lint:
 	#hadolint Dockerfile
 	docker run --rm -i hadolint/hadolint < Dockerfile
+	pip install flask
 	pylint app.py
 	tidy -q -e templates/index.html
 
