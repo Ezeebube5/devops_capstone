@@ -18,7 +18,7 @@ pipeline {
          }
          stage('Kubernetes cluster Creation') {
               steps {
-                  ansiblePlaybook playbook: 'main.yml', inventory: 'inventory', credentialsId: 'aws-static'
+                  ansiblePlaybook playbook: 'main.yml', inventory: 'inventory', credentialsId: 'dev-pipeline'
               }
          }
          
