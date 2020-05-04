@@ -52,7 +52,7 @@
     - application: k8s-cluster
     - ELBNAME: "{{ application }}-load-balancer"
   
-    tasks:
+  tasks:
     - name: Create EC2 instances for worker nodes
       ec2:
         key_name: pipeline
