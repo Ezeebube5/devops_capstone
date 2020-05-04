@@ -16,16 +16,17 @@ pipeline {
                 }
             }
          }
-         stage('Lint') {
-      steps {
-        sh 'make lint'
+      stage('Build Docker') {
+        steps {
+          sh 'make build'
       }
     }
-    stage('Build Docker') {
-      steps {
-        sh 'make build'
+      stage('Lint') {
+        steps {
+          sh 'make lint'
       }
     }
+
     stage('Security Scan') {
               steps { 
                  aquaMicroscanner imageName: 'ezeebube5/static_site:blue', notCompliesCmd: 'exit 1', onDisallowed: 'fail', outputFormat: 'html'
