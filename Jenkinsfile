@@ -28,7 +28,7 @@ pipeline {
     }
     stage('Security Scan') {
               steps { 
-                 aquaMicroscanner imageName: 'ezeebube5/myapp:blue', notCompliesCmd: 'exit 1', onDisallowed: 'fail', outputFormat: 'html'
+                 aquaMicroscanner imageName: 'ezeebube5/static_site:blue', notCompliesCmd: 'exit 1', onDisallowed: 'fail', outputFormat: 'html'
               }
     }
     stage('Login to dockerhub') {
