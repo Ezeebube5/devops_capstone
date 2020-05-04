@@ -43,8 +43,8 @@ pip install boto boto3 botocore openshift flask
 
 ### Build and test the Kubernetes environment
 
-1. Create the pipelins in Blue Ocean importing the repo.
-2. Run the master branch pipeline first to create the EC2 instances, the Load Balancer,  install all dependancies and create the Kubernetes cluster. 
+1. Create the pipeline in Blue Ocean importing the repo.
+2. Run the master branch pipeline first to create the EC2 instances, the Load Balancer,  install all dependencies and create the Kubernetes cluster. 
 3. Look at the Load Balancer URL in AWS console and check that you get valid response from the web site.
 4. Run the blue branch pipeline to build, test and deploy the application and the service in Kubernetes cluster. Check the LB URL again and confirm blue deployment was successfull.
 5. Run the green branch pipeline to build, test and deploy the application and switch the service to map the green deployment. Check the LB URL again and confirm green deployment was successfull.
