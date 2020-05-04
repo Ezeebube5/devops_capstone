@@ -23,10 +23,10 @@
       ec2:
         key_name: pipeline
         instance_type: t2.large
-        image: ami-0fc20dd1da406780b
+        image: ami-003634241a8fcdec0
         user_data: "{{ lookup('file', 'user_data.sh') }}"
         region: us-west-2
-        group_id: sg-0cfe69542efa6f501
+        group_id: sg-0acc44f80769ab036
         wait: yes
         instance_tags:
           Name: master
@@ -57,10 +57,10 @@
       ec2:
         key_name: pipeline
         instance_type: t2.large
-        image: ami-0fc20dd1da406780b
+        image: ami-003634241a8fcdec0
         user_data: "{{ lookup('file', 'user_data.sh') }}"
         region: us-west-2
-        group_id: sg-0cfe69542efa6f501
+        group_id: sg-0acc44f80769ab036
         wait: yes
         instance_tags:
           Name: worker
@@ -78,7 +78,7 @@
       loop: "{{ ec2_worker.instances }}"
 
 - hosts: ec2workers:ec2master
-  name: Install dependancies
+  name: Install dependencies
   user: ubuntu
   become: yes
   gather_facts: true
@@ -199,7 +199,7 @@
     replicas: 4
     image_name: nginx:1.14.2
   tasks:
-    - name: Create a Deployment for myapp.
+    - name: Create a Deployment for static_site.
       k8s:
         state: present
         definition:
@@ -224,14 +224,14 @@
                   imagePullPolicy: Always
                   ports:
                   - containerPort: 80
-    - name: Create a Service for myapp.
+    - name: Create a Service for static_site.
       k8s:
         state: present
         definition:
           apiVersion: v1
           kind: Service
           metadata:
-            name: myapp
+            name: static_site
             namespace: default
           spec:
             type: NodePort
