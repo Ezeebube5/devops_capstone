@@ -1,5 +1,8 @@
 localhost ansible_connection=local
 
+[webserver]
+IP_ADDRESS ansible_user=ubuntu ansible_connection=ssh ansible_private_key_file=~/.ssh/key.pem
+
 [ec2workers]
 
 [ec2master]
