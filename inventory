@@ -1,7 +1,8 @@
 localhost ansible_connection=local
 
 [webservers]
-172.31.14.114
+172.31.14.114 ansible_user=ubuntu ansible_connection=ssh ansible_ssh_private_key_file=/home/ubuntu/.ssh/key.pem
+
 
 [ec2workers]
 
