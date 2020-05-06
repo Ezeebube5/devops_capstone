@@ -28,6 +28,9 @@
 - name: Run deployment and service
   hosts: ec2master
   user: ubuntu
+  ansible_user: ubuntu 
+  ansible_connection: ssh 
+  ansible_ssh_private_key_file: /home/ubuntu/.ssh/key.pem
   gather_facts: false
   vars:
     replicas: 4
