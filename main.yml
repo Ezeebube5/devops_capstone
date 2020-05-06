@@ -28,14 +28,12 @@
 - name: Run deployment and service
   hosts: ec2master
   user: ubuntu
-  ansible_user: ubuntu 
-  ansible_connection: ssh 
   gather_facts: false
   vars:
     replicas: 4
     image_name: ezeebube5/static_site
     deployment: blue
-    ansible_ssh_private_key_file: /home/ubuntu/.ssh/key.pem
+    private_key_file: /home/ubuntu/.ssh/key.pem
   tasks:
     - name: Create a Deployment for static_site.
       k8s:
